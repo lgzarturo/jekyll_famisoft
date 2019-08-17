@@ -1,0 +1,51 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta content="width=device-width,minimum-scale=1,initial-scale=1" name="viewport">
+<meta content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}" name="description">
+<meta name="author" content="{{ site.googleplus_url }}">
+<link rel="author" href="{{ site.googleplus_url }}"/>
+<link rel="publisher" href="{{ site.googleplus_url }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}">
+<title>{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} | {{ site.sitename }}</title>
+
+<!--Open Graph -->
+<meta property="og:type" content="blog">
+<meta property="og:locale" content="es_MX">
+<meta property="og:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} | {{ site.sitename }}">
+<meta property="og:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta property="og:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<meta property="og:site_name" content="{{ site.sitename }}">
+<meta property="og:image" content="{{ "/img/FacebookAd-famisoft-marketing-digital.jpg" | prepend: site.url }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:article:publisher" content="{{ site.googleplus_url }}" >
+
+<!--Twiiter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@{{ site.twitter_username }}">
+<meta name="twitter:creator" content="@{{ site.twitter_username }}">
+<meta name="twitter:creator:id" content="@{{ site.twitter_username }}">
+<meta name="twitter:url" content="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
+<meta name="twitter:title" content="{% if page.title %}{{ page.title | escape }}{% else %}{{ site.title | escape }}{% endif %} | {{ site.sitename }}">
+<meta name="twitter:description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %}">
+<meta name="twitter:image" content="{{ "/img/TwitterAd-famisoft-marketing-digital.jpg" | prepend: site.url }}">
+
+<link rel="apple-touch-icon" sizes="180x180" href="{{ "/favicon/apple-touch-icon.png" | prepend: site.url }}">
+<link rel="icon" type="image/png" href="{{ "/favicon/android-chrome-512x512.png" | prepend: site.url }}" sizes="512x512">
+<link rel="icon" type="image/png" href="{{ "/favicon/android-chrome-192x192.png" | prepend: site.url }}" sizes="192x192">
+<link rel="icon" type="image/png" href="{{ "/favicon/apple-touch-icon.png" | prepend: site.url }}" sizes="180x180">
+<link rel="icon" type="image/png" href="{{ "/favicon/favicon-32x32.png" | prepend: site.url }}" sizes="32x32">
+<link rel="icon" type="image/png" href="{{ "/favicon/favicon-16x16.png" | prepend: site.url }}" sizes="16x16">
+<link rel="manifest" href="{{ "/favicon/manifest.json" | prepend: site.url }}">
+<link rel="mask-icon" href="{{ "/favicon/safari-pinned-tab.svg" | prepend: site.url }}" color="#007cc3">
+<meta name="theme-color" content="#ffffff">
+
+<link href="{{ "/css/bootstrap.min.css" | prepend: site.url }}" rel="stylesheet">
+<link href="{{ "/css/stylish-portfolio.css" | prepend: site.url }}" rel="stylesheet">
+<script src="https://use.fontawesome.com/e1fbbec973.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->

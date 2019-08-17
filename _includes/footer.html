@@ -1,0 +1,132 @@
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 col-lg-offset-1 text-center">
+                <img src="{{ "/img/logo-famisoft-small.png" | prepend: site.url }}" alt="Famisoft Marketing Digital">
+                <p>Cancún, Quintana Roo
+                    <br>México, CP 77500</p>
+                <ul class="list-unstyled">
+                    <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:contact@famisoft.com">contact@famisoft.com</a></li>
+                </ul>
+                <br>
+                <ul class="list-inline">
+                    <li>
+                        <a href="{{ site.facebook_url }}" target="_blank"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{ site.linkedin_url }}" target="_blank"><i class="fa fa-linkedin fa-fw fa-3x"></i></a>
+                    </li>
+                    <li>
+                        <a href="{{ site.googleplus_url }}" target="_blank"><i class="fa fa-google-plus fa-fw fa-3x"></i></a>
+                    </li>
+                </ul>
+                <hr class="small">
+                <p class="text-muted">
+                    Copyright &copy; <a href="http://famisoft.com">FamiSoft 2016</a> - Todos los Derechos Reservados<br/>
+                    <a href="/condiciones-del-servicio-famisoft.html">Condiciones del servicio</a> |
+                    <a href="/politica-de-privacidad.html">Politicas de privacidad</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <a id="to-top" href="#top" class="btn btn-dark btn-lg"><i class="fa fa-chevron-up fa-fw fa-1x"></i></a>
+</footer>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id={{ site.tag_manager }}"
+                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','{{ site.tag_manager }}');</script>
+<!-- End Google Tag Manager -->
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v2.8&appId=259964954390158";
+    fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+<script src="{{ "/js/jquery.js" | prepend: site.url }}"></script>
+<script src="{{ "/js/bootstrap.min.js" | prepend: site.url }}"></script>
+
+<script>
+    // Closes the sidebar menu
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Opens the sidebar menu
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#sidebar-wrapper").toggleClass("active");
+    });
+    // Scrolls to the selected menu item on the page
+    $(function() {
+        $('a[href*=#]:not([href=#],[data-toggle],[data-target],[data-slide])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top
+                    }, 1000);
+                    return false;
+                }
+            }
+        });
+    });
+    //#to-top button appears after scrolling
+    var fixed = false;
+    $(document).scroll(function() {
+        if ($(this).scrollTop() > 250) {
+            if (!fixed) {
+                fixed = true;
+                // $('#to-top').css({position:'fixed', display:'block'});
+                $('#to-top').show("slow", function() {
+                    $('#to-top').css({
+                        position: 'fixed',
+                        display: 'block'
+                    });
+                });
+            }
+        } else {
+            if (fixed) {
+                fixed = false;
+                $('#to-top').hide("slow", function() {
+                    $('#to-top').css({
+                        display: 'none'
+                    });
+                });
+            }
+        }
+    });
+    // Disable Google Maps scrolling
+    // See http://stackoverflow.com/a/25904582/1607849
+    // Disable scroll zooming and bind back the click event
+    var onMapMouseleaveHandler = function(event) {
+        var that = $(this);
+        that.on('click', onMapClickHandler);
+        that.off('mouseleave', onMapMouseleaveHandler);
+        that.find('iframe').css("pointer-events", "none");
+    }
+    var onMapClickHandler = function(event) {
+        var that = $(this);
+        // Disable the click handler until the user leaves the map area
+        that.off('click', onMapClickHandler);
+        // Enable scrolling zoom
+        that.find('iframe').css("pointer-events", "auto");
+        // Handle the mouse leave event
+        that.on('mouseleave', onMapMouseleaveHandler);
+    }
+    // Enable map zooming with mouse scroll when the user clicks the map
+    $('.map').on('click', onMapClickHandler);
+</script>
